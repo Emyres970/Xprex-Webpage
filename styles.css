@@ -1,69 +1,101 @@
+/* Linear-esque Reset & Base Styles */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased; /* Critical for that crisp text look */
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  margin: 0;
-  background: #0b0b0b;
-  color: #ffffff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0b0b0b; /* Deep dark background */
+  color: #f7f8f8; /* Soft white, not harsh #fff */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
+/* Header Container */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: rgba(11, 11, 11, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1000;
+  background: rgba(11, 11, 11, 0.7); /* More transparency */
+  backdrop-filter: blur(20px); /* Stronger blur for glass effect */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Very subtle border */
 }
 
 .header-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 16px 20px;
+  padding: 0 24px; /* Linear usually has wider side padding */
+  height: 64px; /* Fixed height for consistency */
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* Brand & Logo */
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.logo-img {
+  width: 24px; /* Standard icon size */
+  height: 24px;
+  display: block;
+}
+
+.brand-name {
   font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em; /* Tighter tracking looks more premium */
 }
 
-.logo {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ffffff, #999999);
-}
-
+/* Navigation */
 .nav {
   display: flex;
-  gap: 24px;
+  gap: 32px; /* More breathing room */
 }
 
 .nav a {
-  color: #bdbdbd;
+  color: #8a8f98; /* Muted gray for non-active links */
   text-decoration: none;
   font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .nav a:hover {
   color: #ffffff;
 }
 
+/* Actions (CTA + Menu) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .cta {
-  padding: 10px 16px;
-  border-radius: 10px;
+  padding: 6px 12px; /* Compact button */
+  border-radius: 6px; /* Slightly rounded, not full pill */
   background: #ffffff;
   color: #000000;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   text-decoration: none;
+  transition: opacity 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.cta:hover {
+  opacity: 0.9;
 }
 
 .menu-toggle {
@@ -71,16 +103,24 @@ body {
   background: none;
   border: none;
   color: #ffffff;
-  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
 }
 
-/* Mobile */
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .nav {
-    display: none;
+    display: none; /* We will add a mobile menu implementation later */
   }
 
   .menu-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .header-inner {
+    padding: 0 16px;
   }
 }
+
