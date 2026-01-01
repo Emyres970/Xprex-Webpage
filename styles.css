@@ -204,14 +204,15 @@ body {
   gap: 16px;
 }
 
+/* UPDATED: Bigger, clearer labels */
 .section-label {
-  font-size: 12px;
+  font-size: 13px; /* Bumped up */
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: #5e6ad2;
-  font-weight: 600;
-  background: rgba(94, 106, 210, 0.1);
-  padding: 4px 12px;
+  font-weight: 700;
+  background: rgba(94, 106, 210, 0.15); /* Slightly stronger bg */
+  padding: 6px 14px; /* More padding */
   border-radius: 12px;
 }
 
@@ -323,20 +324,19 @@ body {
   padding: 80px 24px;
   max-width: 1000px;
   margin: 0 auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Separator line */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .steps-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 Equal Columns */
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-bottom: 40px;
 }
 
 .step-card {
-  /* Using standard bento card style but simplified */
   background: rgba(255, 255, 255, 0.02);
-  border-left: 1px solid rgba(255, 255, 255, 0.1); /* Left border emphasis */
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
   padding: 32px 24px;
   display: flex;
   flex-direction: column;
@@ -347,7 +347,6 @@ body {
   font-size: 40px;
   font-weight: 700;
   line-height: 1;
-  /* Gradient Text for the number */
   background: linear-gradient(135deg, #ffffff, #5e6ad2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -376,10 +375,109 @@ body {
   padding-top: 24px;
 }
 
+/* UPDATED: Disclaimer Color */
 .trust-disclaimer p {
   font-size: 13px;
-  color: #555; /* Very subtle text */
-  font-family: monospace; /* Techy disclaimer feel */
+  color: #cccccc; /* Much lighter for visibility */
+  font-family: monospace;
+}
+
+/* --- PREMIUM BENEFITS SECTION --- */
+.premium-section {
+  padding: 100px 24px;
+  background: linear-gradient(180deg, #0b0b0b 0%, #111111 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.premium-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Split screen */
+  gap: 60px;
+  align-items: start;
+}
+
+.premium-text {
+  position: sticky;
+  top: 100px; /* Sticks on scroll on desktop */
+}
+
+.premium-text .section-label {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.premium-copy {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #a0a0a0;
+  line-height: 1.7;
+}
+
+.premium-copy strong {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #5e6ad2;
+}
+
+.premium-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.feature-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateX(4px);
+}
+
+.icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  font-size: 20px;
+  color: #fff;
+}
+
+/* Icon Colors matching app screenshot vibes */
+.icon-green { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+.icon-purple { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+.icon-blue { background: linear-gradient(135deg, #3498db, #2980b9); }
+.icon-cyan { background: linear-gradient(135deg, #1abc9c, #16a085); }
+
+.feature-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.feature-content p {
+  font-size: 14px;
+  color: #8a8f98;
+  margin: 0;
 }
 
 /* --- MOBILE RESPONSIVE --- */
@@ -397,7 +495,6 @@ body {
     display: none;
   }
   
-  /* Manifesto Mobile Adjustments */
   .bento-grid {
     grid-template-columns: 1fr;
   }
@@ -405,15 +502,30 @@ body {
     padding: 24px;
   }
 
-  /* Partner Program Mobile */
   .steps-grid {
-    grid-template-columns: 1fr; /* Stack the steps */
+    grid-template-columns: 1fr;
     gap: 16px;
   }
   
   .step-card {
-    border-left: 2px solid rgba(94, 106, 210, 0.5); /* Stronger indicator on mobile */
+    border-left: 2px solid rgba(94, 106, 210, 0.5);
     background: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, transparent 100%);
     padding: 24px;
   }
+
+  /* Premium Section Mobile */
+  .premium-container {
+    grid-template-columns: 1fr; /* Stack */
+    gap: 40px;
+  }
+  
+  .premium-text {
+    position: static; /* No sticky on mobile */
+    text-align: center;
+  }
+  
+  .feature-card {
+    padding: 20px;
+  }
 }
+
