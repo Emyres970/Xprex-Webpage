@@ -1,0 +1,49 @@
+2026-01-01T06:44:01.179Z	Initializing build environment...
+2026-01-01T06:44:01.179Z	Initializing build environment...
+2026-01-01T06:44:03.270Z	Success: Finished initializing build environment
+2026-01-01T06:44:03.718Z	Cloning repository...
+2026-01-01T06:44:04.366Z	No build output detected to cache. Skipping.
+2026-01-01T06:44:04.366Z	No dependencies detected to cache. Skipping.
+2026-01-01T06:44:04.368Z	Detected the following tools from environment: 
+2026-01-01T06:44:04.512Z	Executing user deploy command: npx wrangler deploy
+2026-01-01T06:44:05.889Z	npm warn exec The following package was not found and will be installed: wrangler@4.54.0
+2026-01-01T06:44:15.125Z	
+2026-01-01T06:44:15.125Z	 ⛅️ wrangler 4.54.0
+2026-01-01T06:44:15.125Z	───────────────────
+2026-01-01T06:44:15.139Z	
+2026-01-01T06:44:15.202Z	✘ [ERROR] Missing entry-point to Worker script or to assets directory
+2026-01-01T06:44:15.204Z	
+2026-01-01T06:44:15.205Z	  
+2026-01-01T06:44:15.205Z	  If there is code to deploy, you can either:
+2026-01-01T06:44:15.205Z	  - Specify an entry-point to your Worker script via the command line (ex: `npx wrangler deploy src/index.ts`)
+2026-01-01T06:44:15.205Z	  - Or create a "wrangler.jsonc" file containing:
+2026-01-01T06:44:15.206Z	  
+2026-01-01T06:44:15.206Z	  ```
+2026-01-01T06:44:15.206Z	  {
+2026-01-01T06:44:15.206Z	    "name": "worker-name",
+2026-01-01T06:44:15.207Z	    "compatibility_date": "2026-01-01",
+2026-01-01T06:44:15.207Z	    "main": "src/index.ts"
+2026-01-01T06:44:15.207Z	  }
+2026-01-01T06:44:15.207Z	  ```
+2026-01-01T06:44:15.207Z	  
+2026-01-01T06:44:15.208Z	  
+2026-01-01T06:44:15.208Z	  If are uploading a directory of assets, you can either:
+2026-01-01T06:44:15.208Z	  - Specify the path to the directory of assets via the command line: (ex: `npx wrangler deploy --assets=./dist`)
+2026-01-01T06:44:15.208Z	  - Or create a "wrangler.jsonc" file containing:
+2026-01-01T06:44:15.208Z	  
+2026-01-01T06:44:15.208Z	  ```
+2026-01-01T06:44:15.208Z	  {
+2026-01-01T06:44:15.208Z	    "name": "worker-name",
+2026-01-01T06:44:15.209Z	    "compatibility_date": "2026-01-01",
+2026-01-01T06:44:15.209Z	    "assets": {
+2026-01-01T06:44:15.209Z	      "directory": "./dist"
+2026-01-01T06:44:15.209Z	    }
+2026-01-01T06:44:15.209Z	  }
+2026-01-01T06:44:15.209Z	  ```
+2026-01-01T06:44:15.209Z	  
+2026-01-01T06:44:15.209Z	
+2026-01-01T06:44:15.209Z	
+2026-01-01T06:44:15.223Z	
+2026-01-01T06:44:15.223Z	Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+2026-01-01T06:44:15.247Z	🪵  Logs were written to "/opt/buildhome/.config/.wrangler/logs/wrangler-2026-01-01_06-44-14_555.log"
+2026-01-01T06:44:15.388Z	Failed: error occurred while running deploy command
