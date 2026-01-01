@@ -204,15 +204,14 @@ body {
   gap: 16px;
 }
 
-/* UPDATED: Bigger, clearer labels */
 .section-label {
-  font-size: 13px; /* Bumped up */
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #5e6ad2;
   font-weight: 700;
-  background: rgba(94, 106, 210, 0.15); /* Slightly stronger bg */
-  padding: 6px 14px; /* More padding */
+  background: rgba(94, 106, 210, 0.15);
+  padding: 6px 14px;
   border-radius: 12px;
 }
 
@@ -375,10 +374,9 @@ body {
   padding-top: 24px;
 }
 
-/* UPDATED: Disclaimer Color */
 .trust-disclaimer p {
   font-size: 13px;
-  color: #cccccc; /* Much lighter for visibility */
+  color: #cccccc;
   font-family: monospace;
 }
 
@@ -393,14 +391,14 @@ body {
   max-width: 1000px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Split screen */
+  grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: start;
 }
 
 .premium-text {
   position: sticky;
-  top: 100px; /* Sticks on scroll on desktop */
+  top: 100px;
 }
 
 .premium-text .section-label {
@@ -461,7 +459,6 @@ body {
   color: #fff;
 }
 
-/* Icon Colors matching app screenshot vibes */
 .icon-green { background: linear-gradient(135deg, #2ecc71, #27ae60); }
 .icon-purple { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
 .icon-blue { background: linear-gradient(135deg, #3498db, #2980b9); }
@@ -478,6 +475,50 @@ body {
   font-size: 14px;
   color: #8a8f98;
   margin: 0;
+}
+
+/* --- NEW: FOUNDERS / ORIGIN SECTION --- */
+.founders-section {
+  padding: 120px 24px;
+  background: #0b0b0b;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.founders-container {
+  max-width: 600px; /* Narrower width for reading */
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.founders-headline {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.founders-body {
+  font-size: 18px;
+  line-height: 1.8; /* Good reading height */
+  color: #b4bcd0;
+  text-align: left; /* Easier to read paragraph text */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.founders-signoff {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  align-self: flex-start; /* Aligns signature to text */
+  font-style: italic;
 }
 
 /* --- MOBILE RESPONSIVE --- */
@@ -513,19 +554,21 @@ body {
     padding: 24px;
   }
 
-  /* Premium Section Mobile */
   .premium-container {
-    grid-template-columns: 1fr; /* Stack */
+    grid-template-columns: 1fr;
     gap: 40px;
   }
   
   .premium-text {
-    position: static; /* No sticky on mobile */
+    position: static;
     text-align: center;
   }
   
   .feature-card {
     padding: 20px;
   }
-}
 
+  .founders-headline {
+    font-size: 28px;
+  }
+}
