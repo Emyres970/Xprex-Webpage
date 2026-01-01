@@ -1,25 +1,128 @@
-/* ... Keep all your existing Header CSS ... */
+/* --- RESET & BASE STYLES --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #0b0b0b; /* Deep Dark Background */
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+/* --- HEADER --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(11, 11, 11, 0.7);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand & Logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.logo-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain; /* Ensures logo never stretches */
+  display: block;
+}
+
+.brand-name {
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.nav a {
+  color: #8a8f98;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: #ffffff;
+}
+
+/* Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cta {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #000000;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.cta:hover {
+  opacity: 0.9;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 4px;
+}
 
 /* --- HERO SECTION --- */
-
 .hero {
-  /* Positioning & Layout */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  
-  /* Spacing */
-  padding: 120px 24px 80px; /* Top padding accounts for fixed header */
-  min-height: 80vh; /* Takes up most of the screen */
-  
-  /* Background (optional subtle gradient like Linear) */
-  background: radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  padding: 120px 24px 80px;
+  min-height: 80vh;
+  /* Subtle light effect behind the text */
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,49 +156,40 @@
 
 /* Typography */
 .hero-title {
-  /* Clamp allows smooth scaling from 40px (mobile) to 80px (desktop) */
-  font-size: clamp(40px, 8vw, 80px);
+  font-size: clamp(40px, 8vw, 80px); /* Massive responsive text */
   font-weight: 700;
   line-height: 1.05;
-  letter-spacing: -0.025em; /* The "Linear" tight tracking */
-  
-  /* Gradient Text Effect (Subtle) */
+  letter-spacing: -0.03em; /* Tight Linear tracking */
   background: linear-gradient(to bottom, #ffffff 40%, #b4b4b4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: #ffffff; /* Fallback */
+  color: #ffffff;
+  margin-bottom: 10px;
 }
 
 .hero-subtitle {
-  font-size: clamp(18px, 4vw, 21px);
+  font-size: clamp(18px, 4vw, 22px);
   line-height: 1.5;
-  color: #b4bcd0; /* That specific "Linear" grey */
-  max-width: 600px;
+  color: #b4bcd0;
+  max-width: 650px;
   margin: 0 auto;
 }
 
-/* Break handling */
 .desktop-break {
   display: block;
 }
 
-@media (max-width: 600px) {
-  .desktop-break {
-    display: none; /* Let text wrap naturally on mobile */
-  }
-}
-
 /* Primary Button */
 .hero-cta-wrapper {
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 .primary-button {
   display: inline-block;
   background: #ffffff;
   color: #000000;
-  padding: 14px 28px;
-  border-radius: 30px; /* Full rounded pill shape */
+  padding: 14px 32px;
+  border-radius: 30px;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
@@ -106,3 +200,23 @@
   transform: translateY(-2px);
   box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.3);
 }
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex; /* Show menu icon */
+  }
+  .header-inner {
+    padding: 0 16px;
+  }
+  .desktop-break {
+    display: none; /* Allow text wrapping on mobile */
+  }
+  .hero-title {
+    font-size: 42px; /* Fix mobile size */
+  }
+}
+
