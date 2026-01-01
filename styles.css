@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #0b0b0b; /* Deep Dark Background */
+  background-color: #0b0b0b;
   color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
@@ -36,7 +36,6 @@ body {
   justify-content: space-between;
 }
 
-/* Brand & Logo */
 .brand {
   display: flex;
   align-items: center;
@@ -59,7 +58,6 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* Navigation */
 .nav {
   display: flex;
   gap: 32px;
@@ -77,7 +75,6 @@ body {
   color: #ffffff;
 }
 
-/* Actions */
 .header-actions {
   display: flex;
   align-items: center;
@@ -128,7 +125,6 @@ body {
   gap: 24px;
 }
 
-/* Badge (Pill) */
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -153,7 +149,6 @@ body {
   font-size: 12px;
 }
 
-/* Typography */
 .hero-title {
   font-size: clamp(40px, 8vw, 80px);
   font-weight: 700;
@@ -178,7 +173,6 @@ body {
   display: block;
 }
 
-/* Primary Button */
 .hero-cta-wrapper {
   margin-top: 24px;
 }
@@ -200,16 +194,14 @@ body {
   box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.3);
 }
 
-/* --- MANIFESTO / BENTO SECTION --- */
-.bento-section {
-  padding: 80px 24px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
+/* --- SECTIONS COMMON --- */
 .section-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
 .section-label {
@@ -223,14 +215,32 @@ body {
   border-radius: 12px;
 }
 
-/* Grid Layout */
+.section-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.section-desc {
+  color: #8a8f98;
+  font-size: 18px;
+  max-width: 500px;
+}
+
+/* --- MANIFESTO (BENTO) --- */
+.bento-section {
+  padding: 80px 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .bento-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
 
-/* Card Base Styles */
 .bento-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -266,7 +276,6 @@ body {
   margin: 0;
 }
 
-/* Card Specifics */
 .highlight-text {
   color: #ffffff;
   font-style: italic;
@@ -286,7 +295,6 @@ body {
   color: #fff;
 }
 
-/* Feature List */
 .feature-list {
   list-style: none;
   padding: 0;
@@ -310,6 +318,70 @@ body {
   font-weight: bold;
 }
 
+/* --- PARTNER PROGRAM --- */
+.program-section {
+  padding: 80px 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Separator line */
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Equal Columns */
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.step-card {
+  /* Using standard bento card style but simplified */
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 1px solid rgba(255, 255, 255, 0.1); /* Left border emphasis */
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step-number {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  /* Gradient Text for the number */
+  background: linear-gradient(135deg, #ffffff, #5e6ad2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.step-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.step-card p {
+  font-size: 15px;
+  color: #8a8f98;
+  line-height: 1.5;
+}
+
+.step-card strong {
+  color: #fff;
+}
+
+.trust-disclaimer {
+  text-align: center;
+  padding-top: 24px;
+}
+
+.trust-disclaimer p {
+  font-size: 13px;
+  color: #555; /* Very subtle text */
+  font-family: monospace; /* Techy disclaimer feel */
+}
+
 /* --- MOBILE RESPONSIVE --- */
 @media (max-width: 768px) {
   .nav {
@@ -330,6 +402,18 @@ body {
     grid-template-columns: 1fr;
   }
   .bento-card {
+    padding: 24px;
+  }
+
+  /* Partner Program Mobile */
+  .steps-grid {
+    grid-template-columns: 1fr; /* Stack the steps */
+    gap: 16px;
+  }
+  
+  .step-card {
+    border-left: 2px solid rgba(94, 106, 210, 0.5); /* Stronger indicator on mobile */
+    background: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, transparent 100%);
     padding: 24px;
   }
 }
