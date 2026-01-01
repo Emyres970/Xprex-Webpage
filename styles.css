@@ -1,222 +1,121 @@
-/* --- RESET & BASE STYLES --- */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* ... Keep existing Header & Hero CSS ... */
 
-body {
-  background-color: #0b0b0b; /* Deep Dark Background */
-  color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  overflow-x: hidden; /* Prevents horizontal scroll */
-}
-
-/* --- HEADER --- */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(11, 11, 11, 0.7);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.header-inner {
-  max-width: 1200px;
+/* --- BENTO SECTION (Manifesto) --- */
+.bento-section {
+  padding: 80px 24px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 24px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
-/* Brand & Logo */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: #fff;
-  cursor: pointer;
-}
-
-.logo-img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain; /* Ensures logo never stretches */
-  display: block;
-}
-
-.brand-name {
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: -0.01em;
-}
-
-/* Navigation */
-.nav {
-  display: flex;
-  gap: 32px;
-}
-
-.nav a {
-  color: #8a8f98;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.nav a:hover {
-  color: #ffffff;
-}
-
-/* Actions */
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.cta {
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: #ffffff;
-  color: #000000;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.cta:hover {
-  opacity: 0.9;
-}
-
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  padding: 4px;
-}
-
-/* --- HERO SECTION --- */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.section-header {
   text-align: center;
-  padding: 120px 24px 80px;
-  min-height: 80vh;
-  /* Subtle light effect behind the text */
-  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+  margin-bottom: 40px;
 }
 
-.hero-content {
-  max-width: 900px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.section-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #5e6ad2; /* Linear Purple/Blue accent */
+  font-weight: 600;
+  background: rgba(94, 106, 210, 0.1);
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+/* Grid Layout */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 Equal Columns */
   gap: 24px;
 }
 
-/* Badge (Pill) */
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 13px;
-  color: #a0a0a0;
-  cursor: default;
-  transition: background 0.2s;
+/* Card Base Styles */
+.bento-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.bento-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.card-icon {
+  font-size: 24px;
   margin-bottom: 8px;
 }
 
-.hero-badge:hover {
-  background: rgba(255, 255, 255, 0.12);
+.bento-card h3 {
+  font-size: 20px;
+  font-weight: 600;
   color: #fff;
 }
 
-.badge-arrow {
-  font-size: 12px;
+.bento-card p {
+  color: #8a8f98;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-/* Typography */
-.hero-title {
-  font-size: clamp(40px, 8vw, 80px); /* Massive responsive text */
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.03em; /* Tight Linear tracking */
-  background: linear-gradient(to bottom, #ffffff 40%, #b4b4b4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Card Specifics */
+.highlight-text {
   color: #ffffff;
-  margin-bottom: 10px;
+  font-style: italic;
+  font-weight: 500;
 }
 
-.hero-subtitle {
-  font-size: clamp(18px, 4vw, 22px);
-  line-height: 1.5;
+.card-sub strong {
+  color: #ff5c5c; /* Subtle Red for "Never" */
+}
+
+.card-glow {
+  /* Subtle highlight for the "Solution" card */
+  background: radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-glow strong {
+  color: #fff;
+}
+
+/* Feature List inside Card */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feature-list li {
   color: #b4bcd0;
-  max-width: 650px;
-  margin: 0 auto;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.desktop-break {
-  display: block;
+.feature-list li::before {
+  content: "✓";
+  color: #4CAF50; /* Green check */
+  font-weight: bold;
 }
 
-/* Primary Button */
-.hero-cta-wrapper {
-  margin-top: 24px;
-}
-
-.primary-button {
-  display: inline-block;
-  background: #ffffff;
-  color: #000000;
-  padding: 14px 32px;
-  border-radius: 30px;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.primary-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.3);
-}
-
-/* --- MOBILE --- */
+/* Mobile Breakpoint */
 @media (max-width: 768px) {
-  .nav {
-    display: none;
+  .bento-grid {
+    grid-template-columns: 1fr; /* Stack on mobile */
   }
-  .menu-toggle {
-    display: flex; /* Show menu icon */
-  }
-  .header-inner {
-    padding: 0 16px;
-  }
-  .desktop-break {
-    display: none; /* Allow text wrapping on mobile */
-  }
-  .hero-title {
-    font-size: 42px; /* Fix mobile size */
+  
+  .bento-card {
+    padding: 24px;
   }
 }
-
