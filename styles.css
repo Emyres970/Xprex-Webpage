@@ -477,7 +477,7 @@ body {
   margin: 0;
 }
 
-/* --- NEW: FOUNDERS / ORIGIN SECTION --- */
+/* --- FOUNDERS / ORIGIN SECTION --- */
 .founders-section {
   padding: 120px 24px;
   background: #0b0b0b;
@@ -485,7 +485,7 @@ body {
 }
 
 .founders-container {
-  max-width: 600px; /* Narrower width for reading */
+  max-width: 600px;
   margin: 0 auto;
   text-align: center;
   display: flex;
@@ -504,9 +504,9 @@ body {
 
 .founders-body {
   font-size: 18px;
-  line-height: 1.8; /* Good reading height */
+  line-height: 1.8;
   color: #b4bcd0;
-  text-align: left; /* Easier to read paragraph text */
+  text-align: left;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -517,58 +517,135 @@ body {
   font-size: 18px;
   font-weight: 600;
   color: #fff;
-  align-self: flex-start; /* Aligns signature to text */
+  align-self: flex-start;
   font-style: italic;
+}
+
+/* --- NEW: QUALIFICATION SECTION --- */
+.qual-section {
+  padding: 100px 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  /* Very subtle separator */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.qual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.qual-card {
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: transform 0.2s ease;
+}
+
+/* Positive Card Styles */
+.fit-yes {
+  background: rgba(46, 204, 113, 0.05); /* Very subtle green tint */
+  border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+.fit-yes h3 {
+  color: #2ecc71; /* Green Text */
+}
+
+.qual-icon-yes {
+  color: #2ecc71;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+/* Negative Card Styles */
+.fit-no {
+  background: rgba(255, 255, 255, 0.03); /* Neutral Dark */
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.fit-no h3 {
+  color: #8a8f98; /* Muted Grey Text */
+}
+
+.qual-icon-no {
+  color: #e74c3c; /* Red X */
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.qual-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.qual-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.qual-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.qual-list li {
+  font-size: 16px;
+  line-height: 1.5;
+  padding-left: 20px;
+  position: relative;
+}
+
+/* Custom bullets */
+.fit-yes .qual-list li {
+  color: #ffffff;
+}
+.fit-yes .qual-list li::before {
+  content: "•";
+  color: #2ecc71;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.fit-no .qual-list li {
+  color: #777; /* Dimmed text for "not for you" */
+}
+.fit-no .qual-list li::before {
+  content: "•";
+  color: #555;
+  position: absolute;
+  left: 0;
 }
 
 /* --- MOBILE RESPONSIVE --- */
 @media (max-width: 768px) {
-  .nav {
-    display: none;
-  }
-  .menu-toggle {
-    display: flex;
-  }
-  .header-inner {
-    padding: 0 16px;
-  }
-  .desktop-break {
-    display: none;
+  .nav { display: none; }
+  .menu-toggle { display: flex; }
+  .header-inner { padding: 0 16px; }
+  .desktop-break { display: none; }
+  
+  .bento-grid, .steps-grid, .premium-container, .qual-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
   
-  .bento-grid {
-    grid-template-columns: 1fr;
-  }
-  .bento-card {
+  .bento-card, .step-card, .qual-card {
     padding: 24px;
   }
 
-  .steps-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  
-  .step-card {
-    border-left: 2px solid rgba(94, 106, 210, 0.5);
-    background: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, transparent 100%);
-    padding: 24px;
-  }
-
-  .premium-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .premium-text {
-    position: static;
-    text-align: center;
-  }
-  
-  .feature-card {
-    padding: 20px;
-  }
-
-  .founders-headline {
-    font-size: 28px;
-  }
+  .premium-text { position: static; text-align: center; }
+  .feature-card { padding: 20px; }
+  .founders-headline { font-size: 28px; }
 }
