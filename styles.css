@@ -607,7 +607,7 @@ body {
   left: 0;
 }
 
-/* --- NEW: FINAL CTA --- */
+/* --- FINAL CTA --- */
 .final-cta {
   padding: 160px 24px 100px;
   text-align: center;
@@ -657,41 +657,74 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* --- NEW: FOOTER --- */
+/* --- NEW: MEGA FOOTER --- */
 .site-footer {
-  padding: 40px 24px;
+  padding: 80px 24px 40px; /* Increased top padding */
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   background: #0b0b0b;
 }
 
-.footer-inner {
+.footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr; /* Brand column wider */
+  gap: 40px;
 }
 
-.footer-logo {
+/* Footer Brand */
+.brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-tagline {
+  color: #8a8f98;
   font-size: 14px;
-  font-weight: 600;
+  max-width: 200px;
+}
+
+.copyright {
   color: #555;
+  font-size: 13px;
+  margin-top: auto; /* Push to bottom of flex container */
+}
+
+/* Footer Columns */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-heading {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #555; /* Muted header */
+  font-weight: 700;
+  margin: 0;
 }
 
 .footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.footer-links a {
-  color: #555;
+.footer-links li a {
+  color: #a0a0a0;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 14px;
   transition: color 0.2s;
 }
 
-.footer-links a:hover {
-  color: #fff;
+.footer-links li a:hover {
+  color: #ffffff; /* Bright white on hover */
 }
 
 /* --- MOBILE RESPONSIVE --- */
@@ -714,8 +747,15 @@ body {
   .feature-card { padding: 20px; }
   .founders-headline { font-size: 28px; }
   
-  .footer-inner {
-    flex-direction: column;
-    gap: 20px;
+  /* Footer Mobile */
+  .footer-container {
+    grid-template-columns: 1fr; /* Stack all columns */
+    gap: 48px;
+  }
+  
+  .brand-col {
+    order: 4; /* Move logo/copyright to bottom on mobile? Optional. */
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 32px;
   }
 }
