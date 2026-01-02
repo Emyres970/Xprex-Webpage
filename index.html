@@ -16,14 +16,15 @@
       </div>
 
       <nav class="nav">
-        <a href="#manifesto">Manifesto</a>
+        <a href="#manifesto">Vision</a>
         <a href="#program">The Program</a>
-        <a href="#premium">Premium</a>
+        <a href="#">Playbook</a>
+        <a href="#origin">About</a>
       </nav>
 
       <div class="header-actions">
         <a href="javascript:void(0)" class="cta open-modal">Get access</a>
-        <button class="menu-toggle" aria-label="Open menu">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -31,6 +32,18 @@
           </svg>
         </button>
       </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <nav class="mobile-nav">
+        <a href="#manifesto" class="mobile-link">Vision</a>
+        <a href="#program" class="mobile-link">The Program</a>
+        <a href="#" class="mobile-link">Playbook</a>
+        <a href="#origin" class="mobile-link">About</a>
+        <div class="mobile-cta-wrapper">
+          <a href="javascript:void(0)" class="cta open-modal mobile-cta">Get access</a>
+        </div>
+      </nav>
     </div>
   </header>
 
@@ -264,7 +277,7 @@
           <h4 class="footer-heading">Company</h4>
           <ul class="footer-links">
             <li><a href="#origin">About Us</a></li>
-            <li><a href="#manifesto">Manifesto</a></li>
+            <li><a href="#manifesto">Vision</a></li>
             <li><a href="mailto:hello@xprex.com">Contact</a></li>
           </ul>
         </div>
@@ -375,17 +388,16 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // --- MODAL LOGIC ---
       const modal = document.getElementById('onboarding-modal');
       const openButtons = document.querySelectorAll('.open-modal');
       const closeButton = document.querySelector('.modal-close');
       
-      // View Switching Elements
       const defaultView = document.getElementById('default-view');
       const iosView = document.getElementById('ios-view');
       const iosTrigger = document.getElementById('ios-trigger');
       const backButton = document.getElementById('back-to-default');
 
-      // Form Handling Elements
       const form = document.getElementById("waitlist-form");
       const formBtn = document.getElementById("waitlist-btn");
       const status = document.getElementById("form-status");
@@ -398,11 +410,10 @@
           e.preventDefault();
           modal.classList.add('active');
           document.body.style.overflow = 'hidden';
-          // Reset view on open
+          
+          // Reset Modal
           defaultView.style.display = 'block';
           iosView.style.display = 'none';
-          
-          // Reset form state on open
           form.style.display = 'flex';
           successView.style.display = 'none';
           note.style.display = 'block';
@@ -414,45 +425,35 @@
         });
       });
 
-      // Switch to iOS View
+      // View Switching
       iosTrigger.addEventListener('click', () => {
         defaultView.style.display = 'none';
         iosView.style.display = 'block';
       });
 
-      // Back to Default View
       backButton.addEventListener('click', () => {
         iosView.style.display = 'none';
         defaultView.style.display = 'block';
       });
 
-      // Close Modal Function
+      // Close Logic
       const closeModal = () => {
         modal.classList.remove('active');
         document.body.style.overflow = ''; 
       };
 
       closeButton.addEventListener('click', closeModal);
-
       modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          closeModal();
-        }
+        if (e.target === modal) closeModal();
       });
-
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-          closeModal();
-        }
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
       });
 
-      // Handle Form Submission (AJAX)
+      // Form Handling
       form.addEventListener("submit", async function(event) {
         event.preventDefault();
-        
         const data = new FormData(event.target);
-        
-        // Loading State
         formBtn.disabled = true;
         formBtn.innerText = "Sending...";
         status.innerHTML = "";
@@ -460,17 +461,13 @@
         fetch(event.target.action, {
           method: form.method,
           body: data,
-          headers: {
-              'Accept': 'application/json'
-          }
+          headers: {'Accept': 'application/json'}
         }).then(response => {
           if (response.ok) {
-            // Success State
             form.style.display = "none";
-            note.style.display = "none"; // Hide the note too
+            note.style.display = "none";
             successView.style.display = "block";
           } else {
-            // Error State from Server
             response.json().then(data => {
               if (Object.hasOwn(data, 'errors')) {
                 status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
@@ -483,12 +480,40 @@
             })
           }
         }).catch(error => {
-          // Network Error State
           status.innerHTML = "Oops! There was a problem submitting your form";
           status.classList.add('error');
           formBtn.disabled = false;
           formBtn.innerText = "Request Invite";
         });
+      });
+
+      // --- MOBILE MENU LOGIC ---
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      const mobileCta = document.querySelector('.mobile-cta');
+
+      // Toggle Menu
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        const icon = mobileMenu.classList.contains('active') 
+          ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' // X icon
+          : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>'; // Hamburger
+        menuToggle.innerHTML = icon;
+      });
+
+      // Close menu when a link is clicked
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          menuToggle.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+        });
+      });
+
+      // Close menu when CTA is clicked
+      mobileCta.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        menuToggle.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
       });
     });
   </script>
