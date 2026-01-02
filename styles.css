@@ -990,6 +990,19 @@ body {
   background: #e0e0e0;
 }
 
+/* New: Form Status Message */
+.form-status {
+  font-size: 13px;
+  color: #b4bcd0;
+  text-align: center;
+  margin: 0;
+  height: 20px; /* Prevent jump */
+}
+
+.form-status.error {
+  color: #e74c3c;
+}
+
 /* --- MOBILE RESPONSIVE --- */
 @media (max-width: 768px) {
   .nav { display: none; }
