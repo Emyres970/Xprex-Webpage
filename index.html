@@ -353,12 +353,19 @@
           </p>
         </div>
 
-        <form class="ios-form">
-          <input type="email" placeholder="Enter your email address" required class="modal-input">
-          <button type="submit" class="modal-submit">Request Invite</button>
+        <form class="ios-form" id="waitlist-form" action="https://formspree.io/f/mjgkwnln" method="POST">
+          <input type="email" name="email" placeholder="Enter your email address" required class="modal-input">
+          <button type="submit" class="modal-submit" id="waitlist-btn">Request Invite</button>
+          <p id="form-status" class="form-status"></p>
         </form>
+
+        <div id="waitlist-success" style="display: none; text-align: center; padding: 20px 0;">
+          <div style="font-size: 40px; margin-bottom: 16px;">🚀</div>
+          <h3 style="color: #fff; margin-bottom: 8px;">Welcome to the resistance.</h3>
+          <p style="color: #b4bcd0;">Check your inbox this Friday for your access code.</p>
+        </div>
         
-        <div class="modal-note">
+        <div class="modal-note" id="waitlist-note">
           <p>We invite new creators every Friday. Watch your inbox.</p>
         </div>
       </div>
@@ -378,15 +385,32 @@
       const iosTrigger = document.getElementById('ios-trigger');
       const backButton = document.getElementById('back-to-default');
 
+      // Form Handling Elements
+      const form = document.getElementById("waitlist-form");
+      const formBtn = document.getElementById("waitlist-btn");
+      const status = document.getElementById("form-status");
+      const successView = document.getElementById("waitlist-success");
+      const note = document.getElementById("waitlist-note");
+
       // Open Modal
       openButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
           modal.classList.add('active');
           document.body.style.overflow = 'hidden';
-          // Reset view
+          // Reset view on open
           defaultView.style.display = 'block';
           iosView.style.display = 'none';
+          
+          // Reset form state on open
+          form.style.display = 'flex';
+          successView.style.display = 'none';
+          note.style.display = 'block';
+          form.reset();
+          status.innerHTML = "";
+          status.className = "form-status";
+          formBtn.disabled = false;
+          formBtn.innerText = "Request Invite";
         });
       });
 
@@ -420,6 +444,51 @@
         if (e.key === 'Escape' && modal.classList.contains('active')) {
           closeModal();
         }
+      });
+
+      // Handle Form Submission (AJAX)
+      form.addEventListener("submit", async function(event) {
+        event.preventDefault();
+        
+        const data = new FormData(event.target);
+        
+        // Loading State
+        formBtn.disabled = true;
+        formBtn.innerText = "Sending...";
+        status.innerHTML = "";
+
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+              'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            // Success State
+            form.style.display = "none";
+            note.style.display = "none"; // Hide the note too
+            successView.style.display = "block";
+          } else {
+            // Error State from Server
+            response.json().then(data => {
+              if (Object.hasOwn(data, 'errors')) {
+                status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+              } else {
+                status.innerHTML = "Oops! There was a problem submitting your form";
+              }
+              status.classList.add('error');
+              formBtn.disabled = false;
+              formBtn.innerText = "Request Invite";
+            })
+          }
+        }).catch(error => {
+          // Network Error State
+          status.innerHTML = "Oops! There was a problem submitting your form";
+          status.classList.add('error');
+          formBtn.disabled = false;
+          formBtn.innerText = "Request Invite";
+        });
       });
     });
   </script>
