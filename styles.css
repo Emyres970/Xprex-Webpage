@@ -72,7 +72,7 @@ body {
   transition: color 0.2s ease;
 }
 
-.nav a:hover {
+.nav a:hover, .nav a.active-link {
   color: #ffffff;
 }
 
@@ -107,30 +107,25 @@ body {
   padding: 4px;
 }
 
-/* --- MOBILE MENU OVERLAY (The Fix) --- */
+/* --- MOBILE MENU OVERLAY --- */
 .mobile-menu {
   position: fixed;
-  top: 64px; /* Starts right below header */
+  top: 64px;
   left: 0;
   width: 100%;
   height: calc(100vh - 64px);
-  background: rgba(11, 11, 11, 0.98); /* Solid dark background */
+  background: rgba(11, 11, 11, 0.98);
   backdrop-filter: blur(20px);
   z-index: 999;
-  
-  /* Flex layout for centering */
   display: flex;
   flex-direction: column;
   padding: 40px 24px;
-  
-  /* State: Hidden by Default on All Screens initially */
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
   transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
 }
 
-/* Safety Switch: Hide completely on Desktop so no blue links appear */
 @media (min-width: 769px) {
   .mobile-menu {
     display: none !important; 
@@ -260,6 +255,91 @@ body {
 .primary-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.3);
+}
+
+/* --- EDITORIAL / PROSE PAGES (NEW) --- */
+.prose-section {
+  padding: 100px 24px;
+  min-height: 80vh;
+  background: #0b0b0b;
+}
+
+.prose-container {
+  max-width: 700px; /* Narrower for reading */
+  margin: 0 auto;
+}
+
+.prose-header {
+  text-align: center;
+  margin-bottom: 60px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 40px;
+}
+
+.prose-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #5e6ad2;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.prose-title {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.prose-subtitle {
+  font-size: 18px;
+  color: #8a8f98;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.prose-content {
+  color: #d0d0d0; /* Soft grey text */
+  font-size: 18px;
+  line-height: 1.7; /* Relaxed reading */
+}
+
+.prose-content h3 {
+  color: #fff;
+  font-size: 24px;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.prose-content p {
+  margin-bottom: 24px;
+}
+
+.prose-content strong, .prose-content em {
+  color: #fff;
+}
+
+.prose-list {
+  margin: 32px 0;
+  padding-left: 20px;
+  border-left: 2px solid rgba(94, 106, 210, 0.3);
+}
+
+.prose-list li {
+  margin-bottom: 12px;
+  list-style: none;
+}
+
+.prose-footer {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 20px;
 }
 
 /* --- SECTIONS COMMON --- */
@@ -1066,27 +1146,12 @@ body {
   color: #e74c3c;
 }
 
-/* --- MOBILE RESPONSIVE LOGIC --- */
+/* --- MOBILE RESPONSIVE --- */
 @media (max-width: 768px) {
-  /* HIDE Desktop Nav */
-  .nav {
-    display: none;
-  }
-  /* SHOW Hamburger */
-  .menu-toggle {
-    display: flex;
-  }
-  
-  /* ALLOW Mobile Menu to be displayed (when active) */
-  /* We don't use 'display: none' here because the JS toggles visibility */
-  /* The class .mobile-menu handles the overlay logic */
-  
-  .header-inner {
-    padding: 0 16px;
-  }
-  .desktop-break {
-    display: none;
-  }
+  .nav { display: none; }
+  .menu-toggle { display: flex; }
+  .header-inner { padding: 0 16px; }
+  .desktop-break { display: none; }
   
   .bento-grid, .steps-grid, .premium-container, .qual-grid, .footer-container {
     grid-template-columns: 1fr;
