@@ -785,6 +785,25 @@ body {
   color: #fff;
 }
 
+/* New: Modal Back Button */
+.modal-back {
+  background: none;
+  border: none;
+  color: #8a8f98;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+}
+
+.modal-back:hover {
+  color: #fff;
+}
+
 .modal-header {
   text-align: center;
   margin-bottom: 32px;
@@ -855,6 +874,7 @@ body {
   border-radius: 12px;
   text-decoration: none;
   transition: background 0.2s;
+  cursor: pointer; /* Added pointer */
 }
 
 .android-btn {
@@ -908,6 +928,66 @@ body {
   font-size: 12px;
   color: #777;
   margin: 0;
+}
+
+/* New: iOS Explanation & Form */
+.ios-explanation {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.ios-explanation p {
+  font-size: 14px;
+  color: #b4bcd0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ios-explanation strong {
+  color: #fff;
+}
+
+.ios-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 14px;
+  background: #0b0b0b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.modal-input:focus {
+  border-color: #5e6ad2;
+}
+
+.modal-submit {
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modal-submit:hover {
+  background: #e0e0e0;
 }
 
 /* --- MOBILE RESPONSIVE --- */
