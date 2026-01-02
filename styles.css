@@ -257,89 +257,123 @@ body {
   box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.3);
 }
 
-/* --- EDITORIAL / PROSE PAGES (NEW) --- */
+/* --- EDITORIAL / PROSE PAGES (MODERNIZED) --- */
 .prose-section {
-  padding: 100px 24px;
-  min-height: 80vh;
-  background: #0b0b0b;
+  padding: 120px 0; /* Increase vertical padding */
+  min-height: 100vh;
+  background-color: #0b0b0b;
+  /* Add subtle lighting effect at the top */
+  background-image: radial-gradient(circle at 50% 0%, rgba(94, 106, 210, 0.15) 0%, transparent 60%);
 }
 
 .prose-container {
-  max-width: 700px; /* Narrower for reading */
+  width: 100%;
+  max-width: 720px; /* Golden ratio reading width */
   margin: 0 auto;
+  padding: 0 24px; /* Force padding on sides */
 }
 
 .prose-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 40px;
 }
 
 .prose-label {
-  font-size: 12px;
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   color: #5e6ad2;
   font-weight: 700;
-  margin-bottom: 16px;
-  display: block;
+  margin-bottom: 24px;
+  display: inline-block;
+  background: rgba(94, 106, 210, 0.1);
+  padding: 6px 12px;
+  border-radius: 6px;
 }
 
 .prose-title {
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 700;
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 800;
   line-height: 1.1;
   color: #fff;
-  letter-spacing: -0.02em;
-  margin-bottom: 20px;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
 }
 
 .prose-subtitle {
-  font-size: 18px;
-  color: #8a8f98;
-  max-width: 500px;
+  font-size: 20px;
+  color: #a0a0a0;
+  max-width: 580px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
+/* Typography Enhancements */
 .prose-content {
-  color: #d0d0d0; /* Soft grey text */
-  font-size: 18px;
-  line-height: 1.7; /* Relaxed reading */
+  color: #d0d0d0;
+  font-size: 19px; /* Slightly larger text */
+  line-height: 1.85; /* Luxurious breathing room */
+  font-weight: 400;
 }
 
 .prose-content h3 {
   color: #fff;
-  font-size: 24px;
-  margin-top: 48px;
-  margin-bottom: 16px;
-  font-weight: 600;
+  font-size: 28px;
+  margin-top: 64px; /* More space before headings */
+  margin-bottom: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .prose-content p {
-  margin-bottom: 24px;
+  margin-bottom: 32px; /* Space between paragraphs */
 }
 
 .prose-content strong, .prose-content em {
   color: #fff;
+  font-weight: 600;
 }
 
+/* Styled List */
 .prose-list {
-  margin: 32px 0;
-  padding-left: 20px;
-  border-left: 2px solid rgba(94, 106, 210, 0.3);
+  margin: 40px 0;
+  padding: 0;
 }
 
 .prose-list li {
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   list-style: none;
+  position: relative;
+  padding-left: 32px;
+}
+
+.prose-list li::before {
+  content: "→";
+  color: #5e6ad2;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
 }
 
 .prose-footer {
-  margin-top: 60px;
+  margin-top: 80px;
   padding-top: 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 20px;
+  font-size: 22px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.prose-footer strong {
+  display: block;
+  margin-top: 16px;
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* --- SECTIONS COMMON --- */
