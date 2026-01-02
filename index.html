@@ -295,47 +295,74 @@
     <div class="modal-content">
       <button class="modal-close" aria-label="Close modal">&times;</button>
       
-      <div class="modal-header">
-        <h2>Begin your journey</h2>
-        <p>Follow these steps to access the ecosystem.</p>
-      </div>
+      <div id="default-view">
+        <div class="modal-header">
+          <h2>Begin your journey</h2>
+          <p>Follow these steps to access the ecosystem.</p>
+        </div>
 
-      <div class="modal-steps">
-        <div class="modal-step">
-          <div class="step-dot">1</div>
-          <p><strong>Install Xprex</strong> on your device.</p>
-        </div>
-        <div class="modal-step">
-          <div class="step-dot">2</div>
-          <p>Create your account & complete your profile.</p>
-        </div>
-        <div class="modal-step">
-          <div class="step-dot">3</div>
-          <p>Navigate to <strong>Profile > Creator Hub</strong> to join the Partner Program.</p>
-        </div>
-      </div>
-
-      <div class="modal-actions">
-        <a href="#" class="platform-btn android-btn">
-          <span class="btn-icon">🤖</span>
-          <div class="btn-text">
-            <span class="small">Download APK</span>
-            <span class="large">For Android</span>
+        <div class="modal-steps">
+          <div class="modal-step">
+            <div class="step-dot">1</div>
+            <p><strong>Install Xprex</strong> on your device.</p>
           </div>
-        </a>
-
-        <a href="#" class="platform-btn ios-btn">
-          <span class="btn-icon">🍎</span>
-          <div class="btn-text">
-            <span class="small">Join Beta</span>
-            <span class="large">TestFlight (iOS)</span>
+          <div class="modal-step">
+            <div class="step-dot">2</div>
+            <p>Create your account & complete your profile.</p>
           </div>
-        </a>
+          <div class="modal-step">
+            <div class="step-dot">3</div>
+            <p>Navigate to <strong>Profile > Creator Hub</strong> to join the Partner Program.</p>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <a href="https://media.getxprex.com/3b49a217-e0fc-45d8-bd17-18c523b7756a/app-arm64-v8a-release%20(11).apk" target="_blank" class="platform-btn android-btn">
+            <span class="btn-icon">🤖</span>
+            <div class="btn-text">
+              <span class="small">Download APK</span>
+              <span class="large">For Android</span>
+            </div>
+          </a>
+
+          <a href="javascript:void(0)" class="platform-btn ios-btn" id="ios-trigger">
+            <span class="btn-icon">🍎</span>
+            <div class="btn-text">
+              <span class="small">Join Beta</span>
+              <span class="large">TestFlight (iOS)</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="modal-note">
+          <p>⚠️ Android Users: You may need to "Allow installation from unknown sources" in settings.</p>
+        </div>
       </div>
 
-      <div class="modal-note">
-        <p>⚠️ Android Users: You may need to "Allow installation from unknown sources" in settings.</p>
+      <div id="ios-view" style="display: none;">
+        <button class="modal-back" id="back-to-default">← Back</button>
+        <div class="modal-header">
+          <h2>Request Access</h2>
+          <p>Join the TestFlight rollout.</p>
+        </div>
+
+        <div class="ios-explanation">
+          <p>
+            Due to Apple's strict ecosystem restrictions, we cannot offer direct downloads like Android. 
+            We are rolling out access via <strong>TestFlight</strong> in waves while we finalize the App Store listing.
+          </p>
+        </div>
+
+        <form class="ios-form">
+          <input type="email" placeholder="Enter your email address" required class="modal-input">
+          <button type="submit" class="modal-submit">Request Invite</button>
+        </form>
+        
+        <div class="modal-note">
+          <p>We invite new creators every Friday. Watch your inbox.</p>
+        </div>
       </div>
+
     </div>
   </div>
 
@@ -344,33 +371,51 @@
       const modal = document.getElementById('onboarding-modal');
       const openButtons = document.querySelectorAll('.open-modal');
       const closeButton = document.querySelector('.modal-close');
+      
+      // View Switching Elements
+      const defaultView = document.getElementById('default-view');
+      const iosView = document.getElementById('ios-view');
+      const iosTrigger = document.getElementById('ios-trigger');
+      const backButton = document.getElementById('back-to-default');
 
       // Open Modal
       openButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
           modal.classList.add('active');
-          document.body.style.overflow = 'hidden'; // Prevent scrolling
+          document.body.style.overflow = 'hidden';
+          // Reset view
+          defaultView.style.display = 'block';
+          iosView.style.display = 'none';
         });
+      });
+
+      // Switch to iOS View
+      iosTrigger.addEventListener('click', () => {
+        defaultView.style.display = 'none';
+        iosView.style.display = 'block';
+      });
+
+      // Back to Default View
+      backButton.addEventListener('click', () => {
+        iosView.style.display = 'none';
+        defaultView.style.display = 'block';
       });
 
       // Close Modal Function
       const closeModal = () => {
         modal.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scrolling
+        document.body.style.overflow = ''; 
       };
 
-      // Close on X click
       closeButton.addEventListener('click', closeModal);
 
-      // Close on Background click
       modal.addEventListener('click', (e) => {
         if (e.target === modal) {
           closeModal();
         }
       });
 
-      // Close on Escape key
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
           closeModal();
