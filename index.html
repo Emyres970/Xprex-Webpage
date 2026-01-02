@@ -22,7 +22,7 @@
       </nav>
 
       <div class="header-actions">
-        <a href="#access" class="cta">Get access</a>
+        <a href="javascript:void(0)" class="cta open-modal">Get access</a>
         <button class="menu-toggle" aria-label="Open menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -53,7 +53,7 @@
         </p>
 
         <div class="hero-cta-wrapper">
-          <a href="#access" class="primary-button">Join the Partner Program</a>
+          <a href="javascript:void(0)" class="primary-button open-modal">Join the Partner Program</a>
         </div>
       </div>
     </section>
@@ -243,7 +243,7 @@
     <section id="access" class="final-cta">
       <div class="cta-content">
         <h2 class="cta-headline">Your audience is waiting.</h2>
-        <a href="#access" class="big-cta-button">Join the Partner Program</a>
+        <a href="javascript:void(0)" class="big-cta-button open-modal">Join the Partner Program</a>
         <p class="cta-subtext">Limited onboarding. Early-stage ecosystem.</p>
       </div>
     </section>
@@ -290,6 +290,94 @@
     </footer>
 
   </main>
+
+  <div id="onboarding-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-header">
+        <h2>Begin your journey</h2>
+        <p>Follow these steps to access the ecosystem.</p>
+      </div>
+
+      <div class="modal-steps">
+        <div class="modal-step">
+          <div class="step-dot">1</div>
+          <p><strong>Install Xprex</strong> on your device.</p>
+        </div>
+        <div class="modal-step">
+          <div class="step-dot">2</div>
+          <p>Create your account & complete your profile.</p>
+        </div>
+        <div class="modal-step">
+          <div class="step-dot">3</div>
+          <p>Navigate to <strong>Profile > Creator Hub</strong> to join the Partner Program.</p>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <a href="#" class="platform-btn android-btn">
+          <span class="btn-icon">🤖</span>
+          <div class="btn-text">
+            <span class="small">Download APK</span>
+            <span class="large">For Android</span>
+          </div>
+        </a>
+
+        <a href="#" class="platform-btn ios-btn">
+          <span class="btn-icon">🍎</span>
+          <div class="btn-text">
+            <span class="small">Join Beta</span>
+            <span class="large">TestFlight (iOS)</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="modal-note">
+        <p>⚠️ Android Users: You may need to "Allow installation from unknown sources" in settings.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('onboarding-modal');
+      const openButtons = document.querySelectorAll('.open-modal');
+      const closeButton = document.querySelector('.modal-close');
+
+      // Open Modal
+      openButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+      });
+
+      // Close Modal Function
+      const closeModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      };
+
+      // Close on X click
+      closeButton.addEventListener('click', closeModal);
+
+      // Close on Background click
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
