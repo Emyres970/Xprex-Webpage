@@ -13,7 +13,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  overflow-x: hidden; /* Prevents horizontal scroll */
+  overflow-x: hidden;
 }
 
 /* --- HEADER --- */
@@ -99,7 +99,7 @@ body {
 }
 
 .menu-toggle {
-  display: none; /* Hidden by default on Desktop */
+  display: none;
   background: none;
   border: none;
   color: #ffffff;
@@ -257,20 +257,25 @@ body {
   box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.3);
 }
 
-/* --- EDITORIAL / PROSE PAGES (MODERNIZED) --- */
+/* --- EDITORIAL / PROSE PAGES --- */
 .prose-section {
-  padding: 120px 0; /* Increase vertical padding */
+  padding: 120px 0;
   min-height: 100vh;
   background-color: #0b0b0b;
-  /* Add subtle lighting effect at the top */
+  /* Default Vision Gradient (Purple/Blue) */
   background-image: radial-gradient(circle at 50% 0%, rgba(94, 106, 210, 0.15) 0%, transparent 60%);
+}
+
+/* Specific Gradient for Program Page (Green/Teal) */
+.prose-section.program-bg {
+  background-image: radial-gradient(circle at 50% 0%, rgba(46, 204, 113, 0.1) 0%, transparent 60%);
 }
 
 .prose-container {
   width: 100%;
-  max-width: 720px; /* Golden ratio reading width */
+  max-width: 720px;
   margin: 0 auto;
-  padding: 0 24px; /* Force padding on sides */
+  padding: 0 24px;
 }
 
 .prose-header {
@@ -293,6 +298,11 @@ body {
   border-radius: 6px;
 }
 
+.program-bg .prose-label {
+  color: #2ecc71;
+  background: rgba(46, 204, 113, 0.1);
+}
+
 .prose-title {
   font-size: clamp(40px, 6vw, 64px);
   font-weight: 800;
@@ -310,25 +320,24 @@ body {
   line-height: 1.6;
 }
 
-/* Typography Enhancements */
 .prose-content {
   color: #d0d0d0;
-  font-size: 19px; /* Slightly larger text */
-  line-height: 1.85; /* Luxurious breathing room */
+  font-size: 19px;
+  line-height: 1.85;
   font-weight: 400;
 }
 
 .prose-content h3 {
   color: #fff;
   font-size: 28px;
-  margin-top: 64px; /* More space before headings */
+  margin-top: 64px;
   margin-bottom: 24px;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
 .prose-content p {
-  margin-bottom: 32px; /* Space between paragraphs */
+  margin-bottom: 32px;
 }
 
 .prose-content strong, .prose-content em {
@@ -336,7 +345,6 @@ body {
   font-weight: 600;
 }
 
-/* Styled List */
 .prose-list {
   margin: 40px 0;
   padding: 0;
@@ -374,6 +382,47 @@ body {
   background: linear-gradient(90deg, #fff, #888);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* --- NEW: FACTORS GRID (For Program Page) --- */
+.factors-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin: 40px 0;
+}
+
+@media (min-width: 600px) {
+  .factors-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.factor-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: left;
+}
+
+.factor-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.factor-card h4 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.factor-card p {
+  font-size: 15px;
+  color: #a0a0a0;
+  line-height: 1.5;
+  margin-bottom: 0;
 }
 
 /* --- SECTIONS COMMON --- */
@@ -1187,7 +1236,7 @@ body {
   .header-inner { padding: 0 16px; }
   .desktop-break { display: none; }
   
-  .bento-grid, .steps-grid, .premium-container, .qual-grid, .footer-container {
+  .bento-grid, .steps-grid, .premium-container, .qual-grid, .footer-container, .factors-grid {
     grid-template-columns: 1fr;
     gap: 32px;
   }
