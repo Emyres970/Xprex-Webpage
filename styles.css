@@ -262,7 +262,6 @@ body {
   padding: 120px 0;
   min-height: 100vh;
   background-color: #0b0b0b;
-  /* Default Vision Gradient (Purple/Blue) */
   background-image: radial-gradient(circle at 50% 0%, rgba(94, 106, 210, 0.15) 0%, transparent 60%);
 }
 
@@ -271,9 +270,10 @@ body {
 .prose-section.about-bg { background-image: radial-gradient(circle at 50% 0%, rgba(231, 76, 60, 0.15) 0%, transparent 60%); }
 .prose-section.guidelines-bg { background-image: radial-gradient(circle at 50% 0%, rgba(52, 152, 219, 0.15) 0%, transparent 60%); }
 .prose-section.faq-bg { background-image: radial-gradient(circle at 50% 0%, rgba(149, 165, 166, 0.15) 0%, transparent 60%); }
-
-/* NEW: Support Background (Indigo) */
 .prose-section.support-bg { background-image: radial-gradient(circle at 50% 0%, rgba(100, 50, 200, 0.15) 0%, transparent 60%); }
+
+/* NEW: Legal Background (Dark Neutral) */
+.prose-section.legal-bg { background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 60%); }
 
 .prose-container {
   width: 100%;
@@ -308,6 +308,7 @@ body {
 .guidelines-bg .prose-label { color: #3498db; background: rgba(52, 152, 219, 0.1); }
 .faq-bg .prose-label { color: #95a5a6; background: rgba(149, 165, 166, 0.1); }
 .support-bg .prose-label { color: #a29bfe; background: rgba(162, 155, 254, 0.1); }
+.legal-bg .prose-label { color: #fff; background: rgba(255, 255, 255, 0.1); }
 
 .prose-title {
   font-size: clamp(40px, 6vw, 64px);
@@ -574,7 +575,7 @@ body {
   margin-bottom: 0;
 }
 
-/* --- SUPPORT PAGE STYLES (NEW) --- */
+/* --- SUPPORT PAGE STYLES --- */
 .support-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -583,11 +584,10 @@ body {
 
 @media (min-width: 800px) {
   .support-grid {
-    grid-template-columns: 1fr 1.2fr; /* Links slightly narrower */
+    grid-template-columns: 1fr 1.2fr;
   }
 }
 
-/* Support Links Column */
 .support-links h3, .support-form-wrapper h3 {
   color: #fff;
   font-size: 24px;
@@ -635,7 +635,6 @@ body {
   font-size: 14px;
 }
 
-/* Support Form */
 .form-group {
   margin-bottom: 20px;
 }
@@ -1465,7 +1464,7 @@ textarea.modal-input {
   .header-inner { padding: 0 16px; }
   .desktop-break { display: none; }
   
-  .bento-grid, .steps-grid, .premium-container, .qual-grid, .footer-container {
+  .bento-grid, .steps-grid, .premium-container, .qual-grid, .footer-container, .factors-grid {
     grid-template-columns: 1fr;
     gap: 32px;
   }
