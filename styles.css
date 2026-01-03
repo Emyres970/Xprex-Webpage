@@ -266,14 +266,17 @@ body {
   background-image: radial-gradient(circle at 50% 0%, rgba(94, 106, 210, 0.15) 0%, transparent 60%);
 }
 
-/* Specific Gradient for Program Page (Green/Teal) */
 .prose-section.program-bg {
   background-image: radial-gradient(circle at 50% 0%, rgba(46, 204, 113, 0.1) 0%, transparent 60%);
 }
 
-/* Specific Gradient for Playbook (Amber/Gold) */
 .prose-section.playbook-bg {
   background-image: radial-gradient(circle at 50% 0%, rgba(241, 196, 15, 0.15) 0%, transparent 60%);
+}
+
+/* NEW: About Background (Crimson/Red) */
+.prose-section.about-bg {
+  background-image: radial-gradient(circle at 50% 0%, rgba(231, 76, 60, 0.15) 0%, transparent 60%);
 }
 
 .prose-container {
@@ -303,15 +306,9 @@ body {
   border-radius: 6px;
 }
 
-.program-bg .prose-label {
-  color: #2ecc71;
-  background: rgba(46, 204, 113, 0.1);
-}
-
-.playbook-bg .prose-label {
-  color: #f1c40f;
-  background: rgba(241, 196, 15, 0.1);
-}
+.program-bg .prose-label { color: #2ecc71; background: rgba(46, 204, 113, 0.1); }
+.playbook-bg .prose-label { color: #f1c40f; background: rgba(241, 196, 15, 0.1); }
+.about-bg .prose-label { color: #e74c3c; background: rgba(231, 76, 60, 0.1); }
 
 .prose-title {
   font-size: clamp(40px, 6vw, 64px);
@@ -375,7 +372,6 @@ body {
   font-weight: bold;
 }
 
-/* NEW: Callout Box for Playbook */
 .callout-box {
   background: rgba(255, 255, 255, 0.05);
   border-left: 3px solid #f1c40f;
@@ -384,6 +380,33 @@ body {
   border-radius: 8px;
   font-size: 18px;
   color: #fff;
+}
+
+/* NEW: Mission Box for About Page */
+.mission-box {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 40px;
+  margin: 40px 0;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.mission-box h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #e74c3c;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.mission-box p {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.4;
+  margin: 0;
 }
 
 .prose-footer {
