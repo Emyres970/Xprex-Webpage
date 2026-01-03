@@ -272,8 +272,6 @@ body {
 .prose-section.faq-bg { background-image: radial-gradient(circle at 50% 0%, rgba(149, 165, 166, 0.15) 0%, transparent 60%); }
 .prose-section.support-bg { background-image: radial-gradient(circle at 50% 0%, rgba(100, 50, 200, 0.15) 0%, transparent 60%); }
 .prose-section.legal-bg { background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 60%); }
-
-/* NEW: Contact Background (Midnight/Onyx) */
 .prose-section.contact-bg { background-image: radial-gradient(circle at 50% 0%, rgba(20, 20, 20, 0.5) 0%, transparent 60%); }
 
 .prose-container {
@@ -352,6 +350,18 @@ body {
 .prose-content strong, .prose-content em {
   color: #fff;
   font-weight: 600;
+}
+
+.prose-content a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  transition: text-decoration-color 0.2s;
+}
+
+.prose-content a:hover {
+  text-decoration-color: #fff;
 }
 
 .prose-list {
@@ -659,6 +669,7 @@ textarea.modal-input {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
+  margin: 40px 0;
 }
 
 @media (min-width: 600px) {
@@ -1297,6 +1308,7 @@ textarea.modal-input {
   color: #fff;
 }
 
+/* New: Modal Back Button */
 .modal-back {
   background: none;
   border: none;
