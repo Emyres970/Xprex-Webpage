@@ -262,26 +262,16 @@ body {
   padding: 120px 0;
   min-height: 100vh;
   background-color: #0b0b0b;
-  /* Default Vision Gradient (Purple/Blue) */
   background-image: radial-gradient(circle at 50% 0%, rgba(94, 106, 210, 0.15) 0%, transparent 60%);
 }
 
-.prose-section.program-bg {
-  background-image: radial-gradient(circle at 50% 0%, rgba(46, 204, 113, 0.1) 0%, transparent 60%);
-}
+.prose-section.program-bg { background-image: radial-gradient(circle at 50% 0%, rgba(46, 204, 113, 0.1) 0%, transparent 60%); }
+.prose-section.playbook-bg { background-image: radial-gradient(circle at 50% 0%, rgba(241, 196, 15, 0.15) 0%, transparent 60%); }
+.prose-section.about-bg { background-image: radial-gradient(circle at 50% 0%, rgba(231, 76, 60, 0.15) 0%, transparent 60%); }
+.prose-section.guidelines-bg { background-image: radial-gradient(circle at 50% 0%, rgba(52, 152, 219, 0.15) 0%, transparent 60%); }
 
-.prose-section.playbook-bg {
-  background-image: radial-gradient(circle at 50% 0%, rgba(241, 196, 15, 0.15) 0%, transparent 60%);
-}
-
-.prose-section.about-bg {
-  background-image: radial-gradient(circle at 50% 0%, rgba(231, 76, 60, 0.15) 0%, transparent 60%);
-}
-
-/* NEW: Guidelines Background (Cyan/Ice Blue) */
-.prose-section.guidelines-bg {
-  background-image: radial-gradient(circle at 50% 0%, rgba(52, 152, 219, 0.15) 0%, transparent 60%);
-}
+/* NEW: FAQ Background (Silver/Slate) */
+.prose-section.faq-bg { background-image: radial-gradient(circle at 50% 0%, rgba(149, 165, 166, 0.15) 0%, transparent 60%); }
 
 .prose-container {
   width: 100%;
@@ -314,6 +304,7 @@ body {
 .playbook-bg .prose-label { color: #f1c40f; background: rgba(241, 196, 15, 0.1); }
 .about-bg .prose-label { color: #e74c3c; background: rgba(231, 76, 60, 0.1); }
 .guidelines-bg .prose-label { color: #3498db; background: rgba(52, 152, 219, 0.1); }
+.faq-bg .prose-label { color: #95a5a6; background: rgba(149, 165, 166, 0.1); }
 
 .prose-title {
   font-size: clamp(40px, 6vw, 64px);
@@ -413,7 +404,6 @@ body {
   margin: 0;
 }
 
-/* NEW: Comparison Grid for Guidelines */
 .comparison-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -434,11 +424,11 @@ body {
 }
 
 .do-card {
-  border: 1px solid rgba(46, 204, 113, 0.3); /* Green border */
+  border: 1px solid rgba(46, 204, 113, 0.3);
 }
 
 .dont-card {
-  border: 1px solid rgba(231, 76, 60, 0.3); /* Red border */
+  border: 1px solid rgba(231, 76, 60, 0.3);
 }
 
 .compare-card h4 {
@@ -485,6 +475,59 @@ body {
   background: linear-gradient(90deg, #fff, #888);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* --- FAQ ACCORDION STYLES --- */
+.accordion {
+  margin: 20px 0 40px;
+}
+
+.accordion-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 24px 0;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.accordion-header:hover {
+  color: #95a5a6;
+}
+
+.accordion-header .icon {
+  font-size: 24px;
+  font-weight: 300;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active .icon {
+  transform: rotate(45deg); /* Turns '+' into 'x' */
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.accordion-body p {
+  color: #a0a0a0;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 24px;
 }
 
 /* --- FACTORS GRID --- */
@@ -1339,7 +1382,7 @@ body {
   .header-inner { padding: 0 16px; }
   .desktop-break { display: none; }
   
-  .bento-grid, .steps-grid, .premium-container, .qual-grid, .footer-container {
+  .bento-grid, .steps-grid, .premium-container, .qual-grid, .footer-container, .factors-grid {
     grid-template-columns: 1fr;
     gap: 32px;
   }
