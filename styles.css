@@ -262,6 +262,7 @@ body {
   padding: 120px 0;
   min-height: 100vh;
   background-color: #0b0b0b;
+  /* Default Vision Gradient (Purple/Blue) */
   background-image: radial-gradient(circle at 50% 0%, rgba(94, 106, 210, 0.15) 0%, transparent 60%);
 }
 
@@ -269,9 +270,10 @@ body {
 .prose-section.playbook-bg { background-image: radial-gradient(circle at 50% 0%, rgba(241, 196, 15, 0.15) 0%, transparent 60%); }
 .prose-section.about-bg { background-image: radial-gradient(circle at 50% 0%, rgba(231, 76, 60, 0.15) 0%, transparent 60%); }
 .prose-section.guidelines-bg { background-image: radial-gradient(circle at 50% 0%, rgba(52, 152, 219, 0.15) 0%, transparent 60%); }
-
-/* NEW: FAQ Background (Silver/Slate) */
 .prose-section.faq-bg { background-image: radial-gradient(circle at 50% 0%, rgba(149, 165, 166, 0.15) 0%, transparent 60%); }
+
+/* NEW: Support Background (Indigo) */
+.prose-section.support-bg { background-image: radial-gradient(circle at 50% 0%, rgba(100, 50, 200, 0.15) 0%, transparent 60%); }
 
 .prose-container {
   width: 100%;
@@ -305,6 +307,7 @@ body {
 .about-bg .prose-label { color: #e74c3c; background: rgba(231, 76, 60, 0.1); }
 .guidelines-bg .prose-label { color: #3498db; background: rgba(52, 152, 219, 0.1); }
 .faq-bg .prose-label { color: #95a5a6; background: rgba(149, 165, 166, 0.1); }
+.support-bg .prose-label { color: #a29bfe; background: rgba(162, 155, 254, 0.1); }
 
 .prose-title {
   font-size: clamp(40px, 6vw, 64px);
@@ -477,7 +480,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* --- FAQ ACCORDION STYLES --- */
+/* --- FAQ ACCORDION --- */
 .accordion {
   margin: 20px 0 40px;
 }
@@ -513,7 +516,7 @@ body {
 }
 
 .accordion-header.active .icon {
-  transform: rotate(45deg); /* Turns '+' into 'x' */
+  transform: rotate(45deg);
 }
 
 .accordion-body {
@@ -569,6 +572,85 @@ body {
   color: #a0a0a0;
   line-height: 1.5;
   margin-bottom: 0;
+}
+
+/* --- SUPPORT PAGE STYLES (NEW) --- */
+.support-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+}
+
+@media (min-width: 800px) {
+  .support-grid {
+    grid-template-columns: 1fr 1.2fr; /* Links slightly narrower */
+  }
+}
+
+/* Support Links Column */
+.support-links h3, .support-form-wrapper h3 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.support-links p {
+  margin-bottom: 32px;
+}
+
+.support-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  margin-bottom: 16px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.support-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(4px);
+}
+
+.sc-icon {
+  font-size: 24px;
+}
+
+.sc-text strong {
+  display: block;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.sc-text span {
+  display: block;
+  color: #8a8f98;
+  font-size: 14px;
+}
+
+/* Support Form */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+textarea.modal-input {
+  min-height: 120px;
+  resize: vertical;
 }
 
 /* --- SECTIONS COMMON --- */
@@ -1160,6 +1242,7 @@ body {
   color: #fff;
 }
 
+/* New: Modal Back Button */
 .modal-back {
   background: none;
   border: none;
@@ -1382,7 +1465,7 @@ body {
   .header-inner { padding: 0 16px; }
   .desktop-break { display: none; }
   
-  .bento-grid, .steps-grid, .premium-container, .qual-grid, .footer-container, .factors-grid {
+  .bento-grid, .steps-grid, .premium-container, .qual-grid, .footer-container {
     grid-template-columns: 1fr;
     gap: 32px;
   }
