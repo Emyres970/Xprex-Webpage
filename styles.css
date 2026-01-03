@@ -271,9 +271,10 @@ body {
 .prose-section.guidelines-bg { background-image: radial-gradient(circle at 50% 0%, rgba(52, 152, 219, 0.15) 0%, transparent 60%); }
 .prose-section.faq-bg { background-image: radial-gradient(circle at 50% 0%, rgba(149, 165, 166, 0.15) 0%, transparent 60%); }
 .prose-section.support-bg { background-image: radial-gradient(circle at 50% 0%, rgba(100, 50, 200, 0.15) 0%, transparent 60%); }
-
-/* NEW: Legal Background (Dark Neutral) */
 .prose-section.legal-bg { background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 60%); }
+
+/* NEW: Contact Background (Midnight/Onyx) */
+.prose-section.contact-bg { background-image: radial-gradient(circle at 50% 0%, rgba(20, 20, 20, 0.5) 0%, transparent 60%); }
 
 .prose-container {
   width: 100%;
@@ -309,6 +310,7 @@ body {
 .faq-bg .prose-label { color: #95a5a6; background: rgba(149, 165, 166, 0.1); }
 .support-bg .prose-label { color: #a29bfe; background: rgba(162, 155, 254, 0.1); }
 .legal-bg .prose-label { color: #fff; background: rgba(255, 255, 255, 0.1); }
+.contact-bg .prose-label { color: #8a8f98; background: rgba(255, 255, 255, 0.1); }
 
 .prose-title {
   font-size: clamp(40px, 6vw, 64px);
@@ -575,7 +577,7 @@ body {
   margin-bottom: 0;
 }
 
-/* --- SUPPORT PAGE STYLES --- */
+/* --- SUPPORT & CONTACT STYLES --- */
 .support-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -650,6 +652,60 @@ body {
 textarea.modal-input {
   min-height: 120px;
   resize: vertical;
+}
+
+/* --- DIRECTORY GRID (For Contact Page) --- */
+.directory-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 600px) {
+  .directory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.dir-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.dir-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dir-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.dir-card h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.dir-card p {
+  font-size: 15px;
+  color: #8a8f98;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.dir-link {
+  color: #5e6ad2;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 /* --- SECTIONS COMMON --- */
@@ -1241,7 +1297,6 @@ textarea.modal-input {
   color: #fff;
 }
 
-/* New: Modal Back Button */
 .modal-back {
   background: none;
   border: none;
