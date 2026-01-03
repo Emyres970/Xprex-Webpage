@@ -274,9 +274,13 @@ body {
   background-image: radial-gradient(circle at 50% 0%, rgba(241, 196, 15, 0.15) 0%, transparent 60%);
 }
 
-/* NEW: About Background (Crimson/Red) */
 .prose-section.about-bg {
   background-image: radial-gradient(circle at 50% 0%, rgba(231, 76, 60, 0.15) 0%, transparent 60%);
+}
+
+/* NEW: Guidelines Background (Cyan/Ice Blue) */
+.prose-section.guidelines-bg {
+  background-image: radial-gradient(circle at 50% 0%, rgba(52, 152, 219, 0.15) 0%, transparent 60%);
 }
 
 .prose-container {
@@ -309,6 +313,7 @@ body {
 .program-bg .prose-label { color: #2ecc71; background: rgba(46, 204, 113, 0.1); }
 .playbook-bg .prose-label { color: #f1c40f; background: rgba(241, 196, 15, 0.1); }
 .about-bg .prose-label { color: #e74c3c; background: rgba(231, 76, 60, 0.1); }
+.guidelines-bg .prose-label { color: #3498db; background: rgba(52, 152, 219, 0.1); }
 
 .prose-title {
   font-size: clamp(40px, 6vw, 64px);
@@ -382,7 +387,6 @@ body {
   color: #fff;
 }
 
-/* NEW: Mission Box for About Page */
 .mission-box {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.03);
@@ -407,6 +411,61 @@ body {
   color: #fff;
   line-height: 1.4;
   margin: 0;
+}
+
+/* NEW: Comparison Grid for Guidelines */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin: 40px 0;
+}
+
+@media (min-width: 600px) {
+  .comparison-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.compare-card {
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.do-card {
+  border: 1px solid rgba(46, 204, 113, 0.3); /* Green border */
+}
+
+.dont-card {
+  border: 1px solid rgba(231, 76, 60, 0.3); /* Red border */
+}
+
+.compare-card h4 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.do-card h4 { color: #2ecc71; }
+.dont-card h4 { color: #e74c3c; }
+
+.compare-card ul {
+  padding: 0;
+  margin: 0;
+}
+
+.compare-card ul li {
+  list-style: none;
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #d0d0d0;
+  position: relative;
+  padding-left: 0;
+}
+
+.compare-card ul li::before {
+  content: none;
 }
 
 .prose-footer {
@@ -1280,7 +1339,7 @@ body {
   .header-inner { padding: 0 16px; }
   .desktop-break { display: none; }
   
-  .bento-grid, .steps-grid, .premium-container, .qual-grid, .footer-container, .factors-grid {
+  .bento-grid, .steps-grid, .premium-container, .qual-grid, .footer-container {
     grid-template-columns: 1fr;
     gap: 32px;
   }
