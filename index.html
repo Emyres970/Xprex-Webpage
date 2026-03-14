@@ -331,25 +331,13 @@
         </div>
 
         <div class="modal-actions">
-          <a href="https://media.getxprex.com/006af64b-a001-4408-b646-b24f3cc0a37e/xprex.apk" target="_blank" class="platform-btn android-btn">
-            <span class="btn-icon">🤖</span>
-            <div class="btn-text">
-              <span class="small">Download APK</span>
-              <span class="large">For Android</span>
-            </div>
-          </a>
-
-          <a href="javascript:void(0)" class="platform-btn ios-btn" id="ios-trigger">
-            <span class="btn-icon">🍎</span>
-            <div class="btn-text">
-              <span class="small">Join Beta</span>
-              <span class="large">TestFlight (iOS)</span>
-            </div>
+          <a href="https://app.getxprex.com" class="primary-button" style="width: 100%; text-align: center; padding: 18px; display: block; margin-top: 20px; font-weight: 700;">
+            Launch XpreX Web App
           </a>
         </div>
 
-        <div class="modal-note">
-          <p>⚠️ Android Users: You may need to "Allow installation from unknown sources" in settings.</p>
+        <div class="modal-note" style="margin-top: 15px; text-align: center;">
+          <p>No download required. Works instantly on any device.</p>
         </div>
       </div>
 
@@ -427,10 +415,12 @@
       });
 
       // View Switching
-      iosTrigger.addEventListener('click', () => {
-        defaultView.style.display = 'none';
-        iosView.style.display = 'block';
-      });
+      if (iosTrigger) {
+        iosTrigger.addEventListener('click', () => {
+          defaultView.style.display = 'none';
+          iosView.style.display = 'block';
+        });
+      }
 
       backButton.addEventListener('click', () => {
         iosView.style.display = 'none';
